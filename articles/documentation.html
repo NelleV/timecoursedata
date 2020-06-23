@@ -82,23 +82,34 @@
 
     
     
-<div id="timecoursedata-time-course-gene-expression-datasets" class="section level1">
-<h1 class="hasAnchor">
-<a href="#timecoursedata-time-course-gene-expression-datasets" class="anchor"></a>timecoursedata: Time course gene expression datasets</h1>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
 <p>This package provides time course gene expression datasets. The data included in the package and its processing is described below.</p>
 <p>Overviw of the datasets included in timecoursedata:</p>
 <table class="table">
+<colgroup>
+<col width="36%">
+<col width="63%">
+</colgroup>
 <thead><tr class="header">
 <th>object</th>
 <th>description</th>
 </tr></thead>
-<tbody><tr class="odd">
+<tbody>
+<tr class="odd">
 <td><code>shoemaker2015</code></td>
 <td>microarray data from influenza-exposed mice</td>
-</tr></tbody>
+</tr>
+<tr class="even">
+<td><code>varoquaux2019leaf</code></td>
+<td>RNA-seq from leaf samples of <em>S. bicolor</em> exposed to drought</td>
+</tr>
+<tr class="odd">
+<td><code>varoquaux2019root</code></td>
+<td>RNA-seq from root samples of <em>S. bicolor</em> exposed to drought</td>
+</tr>
+</tbody>
 </table>
 </div>
 <div id="data-structure" class="section level2">
@@ -109,7 +120,7 @@
 <li>a matrix containing the gene expression data</li>
 <li>a data.frame containing the metadata associated with it</li>
 </ul>
-<p>The metadata contains the following information:</p>
+<p>The metadata contains at least the following information:</p>
 <table class="table">
 <thead><tr class="header">
 <th>column</th>
@@ -446,6 +457,15 @@
 ## NM_001042489         9.797462  10.319121   9.178391  10.107715
 ## NM_008159            5.649718   5.062796   4.856292   4.948274</code></pre>
 </div>
+<div id="transcriptomic-analysis-of-field-droughted-sorghum-from-seedling-to-maturity-reveals-biotic-and-metabolic-responses" class="section level2">
+<h2 class="hasAnchor">
+<a href="#transcriptomic-analysis-of-field-droughted-sorghum-from-seedling-to-maturity-reveals-biotic-and-metabolic-responses" class="anchor"></a>Transcriptomic analysis of field-droughted sorghum from seedling to maturity reveals biotic and metabolic responses</h2>
+<p>This pairs of datasets (<code>varoquaux2019leaf</code> and <code>varoquaux2019root</code>) corresponds to transcriptomic data from respectively leaf and root samples of <em>S. bicolor</em> exposed to droughts (pre-flowering and post-flowering drougt) from seedling to maturity. Samples were collected weekly during 15 weeks. The data provided here is not normalized.</p>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">varoquaux2019leaf</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="no">varoquaux2019leaf</span>$<span class="no">data</span>)</pre></body></html></div>
+<pre><code>## [1] 34211</code></pre>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span>(<span class="no">varoquaux2019leaf</span>$<span class="no">data</span>)</pre></body></html></div>
+<pre><code>## [1] 197</code></pre>
 </div>
   </div>
 
