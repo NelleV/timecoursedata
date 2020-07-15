@@ -8,11 +8,13 @@
 
 <title>Time course transcriptomic from mouse lung tissues infected with influenza — shoemaker2015 • timecoursedata</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
@@ -36,11 +38,10 @@
 
 
 
+
 <meta property="og:title" content="Time course transcriptomic from mouse lung tissues infected with influenza — shoemaker2015" />
-
 <meta property="og:description" content="Time-course microarray data from &quot;An Ultrasensitive Mechanism Regulates
-Influenza Virus-Induced Inflammation&quot;" />
-
+Influenza Virus-Induced Inflammation&quot;." />
 
 
 
@@ -72,7 +73,7 @@ Influenza Virus-Induced Inflammation&quot;" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">timecoursedata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -99,8 +100,10 @@ Influenza Virus-Induced Inflammation&quot;" />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
@@ -122,23 +125,48 @@ Influenza Virus-Induced Inflammation&quot;" />
     </div>
 
     <div class="ref-description">
-    
     <p>Time-course microarray data from "An Ultrasensitive Mechanism Regulates
-Influenza Virus-Induced Inflammation"</p>
-    
+Influenza Virus-Induced Inflammation".</p>
     </div>
 
     <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>shoemaker2015</span>)</pre>
-        
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code>list</code> of length 2.</p>
-    
+    <p>A list with two related datasets: a gene expression data set (element
+  <code>data</code>) and corresponding meta data (element <code>meta</code>). The column
+  names of <code>data</code> correspond to the rownames of <code>meta</code>, linking the
+  samples together in the two datasets. See examples for accessing these two
+  data.frames.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This is data from a micro-array time-course experiment, exposing
+  mice to three different strains of influenza, and collecting lung tissue
+  during 14 time-points after infection (0, 3, 6, 9, 12, 18, 24, 30, 36, 48,
+  60 hours, then 3, 5, and 7 days later) [8]. The three strains of influenza
+  used in the study are (1) a low pathogenicity seasonal H1N1 influenza virus
+  (A/Kawasaki/UTK4/2009 [H1N1]), a mildly pathogenic virus from the 2009
+  pandemic season (A/California/04/2009 [H1N1]), and a highly pathogenic H5N1
+  avian influenza virus (A/Vietnam/1203/2004 [H5N1]. Mice were injected with
+  105 PFU of each virus. An additional 42 mice were injected with a lower
+  dose of the Vietnam avian influenza virus (103 PFU).</p>
+<p><code>data</code> is a data frame with 39544 rows corresponding to genes
+  and 209 corresponding to samples. The rownames give the RefSeq name of the gene.</p>
+<p><code>meta</code> is a data frame with 209 rows corresponding to samples
+  and 3 named columns (the first column is just an index from 0-208):</p><dl'>
+  <dt>Group</dt><dd><p>The treatment group of the sample. "C"=Control, "K"=Kawasaki
+  strain, "M"=California strain, "VH"=Vietnam strain, "VL"=Vietnam at lower
+  dosage (103 PFU).</p></dd>
+  <dt>Replicate</dt><dd><p>Identifies the replicate -- each combination of treatment and timepoint was replicated three times (except for VH at timepoint 3, which has only 2 replicates).</p></dd>
+  <dt>Timepoint</dt><dd><p>Identifies the time passed (in days) since infection of the sample</p></dd>
+
+</dl>
+
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Shoemaker et al. (2015) PLOS Pathog.
 (<a href='https://www.ncbi.nlm.nih.gov/pubmed/26046528'>PubMed</a>)</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>shoemaker2015</span>)

@@ -6,13 +6,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Time course transcriptomic data from leaf tissues exposed to drought stress — varoquaux2019leaf • timecoursedata</title>
+<title>Time course transcriptomic data from leaf and root tissues exposed to drought stress — varoquaux2019leaf • timecoursedata</title>
+
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
@@ -36,11 +38,10 @@
 
 
 
-<meta property="og:title" content="Time course transcriptomic data from leaf tissues exposed to drought stress — varoquaux2019leaf" />
 
-<meta property="og:description" content="Time-course RNA-seq leaf data from &quot;Transcriptomic analysis of field-droughted
+<meta property="og:title" content="Time course transcriptomic data from leaf and root tissues exposed to drought stress — varoquaux2019leaf" />
+<meta property="og:description" content="Time-course RNA-seq leaf and root data from &quot;Transcriptomic analysis of field-droughted
 sorghum from seedling to maturity reveals biotic and metabolic responses&quot;" />
-
 
 
 
@@ -72,7 +73,7 @@ sorghum from seedling to maturity reveals biotic and metabolic responses&quot;" 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">timecoursedata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -99,8 +100,10 @@ sorghum from seedling to maturity reveals biotic and metabolic responses&quot;" 
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
@@ -116,34 +119,129 @@ sorghum from seedling to maturity reveals biotic and metabolic responses&quot;" 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Time course transcriptomic data from leaf tissues exposed to drought stress</h1>
+    <h1>Time course transcriptomic data from leaf and root tissues exposed to drought stress</h1>
     
     <div class="hidden name"><code>varoquaux2019leaf.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
-    <p>Time-course RNA-seq leaf data from "Transcriptomic analysis of field-droughted
+    <p>Time-course RNA-seq leaf and root data from "Transcriptomic analysis of field-droughted
 sorghum from seedling to maturity reveals biotic and metabolic responses"</p>
-    
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>varoquaux2019leaf</span>)</pre>
-        
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>varoquaux2019leaf</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>varoquaux2019root</span>)</pre>
+
+
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>An object of class <code>list</code> of length 2.</p>
-    
+    <p>A list with two related datasets: a gene expression data set (element
+  <code>data</code>) and corresponding meta data (element <code>meta</code>). The column
+  names of <code>data</code> correspond to the rownames of <code>meta</code>, linking the
+  samples together in the two datasets. See examples for accessing these two
+  data.frames.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This are two datasets from a mRNA-Seq time-course experiment,
+  measuring gene expression across time in the plant sorghum. One dataset
+  corresponds to the leaf of the plant (<code>varoquaux2019leaf</code>), the other
+  to the root from the same sets of plants (<code>varoquaux2019leaf</code>). Each
+  sample sequenced is actually a pool of at least 10 plants.</p>
+<p><code>data</code> is a data frame with 34,211 rows corresponding to
+  sorghum genes with
+  (<a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor'>Phytozome v3.0</a> gene ids). Root has 198 columns and leaf has 197 columns,
+  corresponding to samples. The root and leaf samples are from the same
+  plants, and have ids in the form of "0622162L05" or "0622162R05", with "L"
+  corresponding to the leaf and "R" corresponding to the root sample. Some
+  samples were removed for quality control reasons, resulting in slightly
+  different numbers of samples between the leaf and root.</p>
+<p>The data provided is normalized data, where the leaf and root have
+  been normalized separately. While we have kept the datasets in the same
+  format, a simple merge of the two datasets could be problematic due to the
+  separate normalization.</p>
+<p><code>meta</code> is a data frame with rows corresponding to samples and
+  and columns with meta data. These columns are the same across leaf and
+  root, allowing for easy reuse of code across the datasets:</p><dl'>
+  <dt>Barcode</dt><dd><p>Barcode of the sample, same as row name</p></dd>
+  <dt>libraryName</dt><dd><p>Internal Barcode given to the sample by the sequencing facility (JGI)</p></dd>                                 
+  <dt>Block</dt><dd><p>Plot from which the sample was taken</p></dd> 
+  <dt>Week</dt><dd><p>Numeric value corresponding to the week sample was taken</p></dd>                                           
+  <dt>Replicate</dt><dd><p>Each condition combination was replicated three times, but
+  not all replicates were sequenced. Each replicate came from a different
+  plot. The replicate id tracks this plot for each condition. However,
+  replicate 1 in one condition is a completely different plot from replicate 1 in another
+  condition, though the replicates were physically close to each other in the field.</p></dd>
+  <dt>Genotype</dt><dd><p>Genotype (i.e. variety) of the sample, one of BT642 or RT430</p></dd>    
+  <dt>Condition</dt><dd><p>The drought condition, one of "Control" (regular
+  watering), "Postflowering" (drought applied post flowering of the plant),
+  or "Preflowering" (drought applied pre-flowering of the plant, and then
+  watering resumed after flowering)</p></dd>
+  <dt>Sample.type</dt><dd><p>Either "Leaves" or "Root", only relevant if merging the two datasets</p></dd>                                     
+  <dt>Day</dt><dd><p>The day sample collected, in form of "Day14" (corresponding to Week 2)</p></dd>
+  <dt>Row</dt><dd><p>Row plant was sampled from within the block</p></dd>                                        
+  <dt>isFloweringWeek</dt><dd><p>logical, indicating whether the week sampled
+  corresponding to the plant flowering</p></dd>
+  <dt>Date.Harvested</dt><dd><p>The date sample was collected</p></dd>    
+  <dt>Collection.Time</dt><dd><p>The time of day plant was collected</p></dd>                                 
+  <dt>No.plants.pooled</dt><dd><p>The number of plants pooled for the sample</p></dd>
+  <dt>FloweringJulianDate</dt><dd><p>The Julian date  of flowering for the block the
+  sample was collected from</p></dd>
+  <dt>FloweringDate</dt><dd><p>The date of flowering for the block the sample was collected from</p></dd>                                  
+  <dt>FloweringWeek</dt><dd><p>The week of flowering for the block the sample was collected from</p></dd>
+  <dt>FloweringDay</dt><dd><p>The day of flowering for the block the sample was collected from</p></dd>                                    
+  <dt>Unreplicated</dt><dd><p>Identifies timepoints with no replicates</p></dd>                                  
+  <dt>CompleteSampleTreatment</dt><dd><p>Full set of factors (Genotype x Treatment x Week)</p></dd>                         
+
+</dl><p>The following variables are features measured at the end of planting when the
+remaining plants from the plot were harvested:</p><dl'>
+  <dt>LbsGrainHarvestPerPlot</dt><dd><p></p></dd> 
+  <dt>TonsOfGrain.ac</dt><dd><p></p></dd>
+  <dt>PctGrainMoisture</dt><dd><p></p></dd>
+  <dt>TonsOfGrain.acAt13PctMoisture</dt><dd><p></p></dd>                   
+  <dt>X1000SeedWt_g</dt><dd><p></p></dd>
+  <dt>ApproximateEndOfSeasonStandCount_aveOfGrainRows</dt><dd><p></p></dd> 
+  <dt>TotalFreshForageWtPerPlot_kg</dt><dd><p></p></dd>                    
+  <dt>TotalFreshForageWtPerPlot_lbs</dt><dd><p></p></dd>                   
+  <dt>TonsOfForage.ac</dt><dd><p></p></dd>                   
+  <dt>PctMoistureForage</dt><dd><p></p></dd>                               
+  <dt>TonsOfForage.acAt65PctMoisture</dt><dd><p></p></dd>                  
+  <dt>ApproximateEndOfSeasonStandCount_aveOfForageRows</dt><dd><p></p></dd> 
+  <dt>DryBiomass</dt><dd><p></p></dd>                                       
+  <dt>FreshBiomass</dt><dd><p></p></dd>                                    
+  <dt>AveHeight</dt><dd><p></p></dd>  
+  
+</dl><p>The following variables are features regarding the quality of the mapping of
+the sequences from the sample:</p><dl'>
+  <dt>rawReads</dt><dd><p></p></dd>                                     
+  <dt>filteredReads</dt><dd><p></p></dd>                                   
+  <dt>sequencerType</dt><dd><p></p></dd>                                   
+  <dt>runType</dt><dd><p></p></dd>                                 
+  <dt>totalFragments</dt><dd><p></p></dd>                         
+  <dt>mappedFragments</dt><dd><p></p></dd>                                  
+  <dt>assignedFragments</dt><dd><p></p></dd>                                
+  <dt>unassignedAmbiguous</dt><dd><p></p></dd>                              
+  <dt>unassignedNoFeatures</dt><dd><p></p></dd>                            
+  <dt>unassignedSecondaryHits</dt><dd><p></p></dd>                       
+  <dt>ratioStrandedness</dt><dd><p></p></dd>                               
+  <dt>MappedRatio</dt><dd><p></p></dd>                                     
+  <dt>AssignedRatio</dt><dd><p></p></dd>                                 
+  <dt>Plate</dt><dd><p></p></dd>                                    
+  <dt>Location</dt><dd><p></p></dd>                         
+
+</dl>
+
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Varoquaux et al, 2019
 (<a href='https://www.pnas.org/content/116/52/27124.short'>PNAS</a>)</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>varoquaux2019leaf</span>)
-<span class='no'>data</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>varoquaux2019leaf</span>, <span class='st'>"data"</span>)
-<span class='no'>meta</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>varoquaux2019leaf</span>, <span class='st'>"meta"</span>)</div></pre>
+<span class='no'>dataLeaf</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>varoquaux2019leaf</span>, <span class='st'>"data"</span>)
+<span class='no'>metaLeaf</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>varoquaux2019leaf</span>, <span class='st'>"meta"</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>varoquaux2019root</span>)
+<span class='no'>dataRoot</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>varoquaux2019root</span>, <span class='st'>"data"</span>)
+<span class='no'>metaRoot</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>varoquaux2019root</span>, <span class='st'>"meta"</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
