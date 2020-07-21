@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">timecoursedata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.0</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
 <p>This package provides time course gene expression datasets. The data included in the package and its processing is described below.</p>
-<p>Overviw of the datasets included in timecoursedata:</p>
+<p>Overview of the datasets included in timecoursedata:</p>
 <table class="table">
 <colgroup>
 <col width="36%">
@@ -123,6 +123,31 @@
 <li>a matrix containing the gene expression data</li>
 <li>a data.frame containing the metadata associated with it</li>
 </ul>
+<p>All datasets can also be loaded as SummarizedExperiment objects using the following functions:</p>
+<table class="table">
+<thead><tr class="header">
+<th>name</th>
+<th>matrix/data.frame</th>
+<th>SummarizedExperiment</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>shoemaker2015</code></td>
+<td><code><a href="https://rdrr.io/r/utils/data.html">data(shoemaker2015)</a></code></td>
+<td><code><a href="../reference/load_shoemaker2015.html">load_shoemaker2015()</a></code></td>
+</tr>
+<tr class="even">
+<td><code>varoquaux2019leaf</code></td>
+<td><code><a href="https://rdrr.io/r/utils/data.html">data(varoquaux2019leaf)</a></code></td>
+<td><code><a href="../reference/load_varoquaux2019leaf.html">load_varoquaux2019leaf()</a></code></td>
+</tr>
+<tr class="odd">
+<td><code>varoquaux2019root</code></td>
+<td><code><a href="https://rdrr.io/r/utils/data.html">data(varoquaux2019root)</a></code></td>
+<td><code><a href="../reference/load_varoquaux2019root.html">load_varoquaux2019root()</a></code></td>
+</tr>
+</tbody>
+</table>
 <p>The metadata contains at least the following information:</p>
 <table class="table">
 <thead><tr class="header">
@@ -154,8 +179,60 @@
 <h2 class="hasAnchor">
 <a href="#an-ultrasensitive-mechanism-regulates-influenza-virus-induced-inflammation" class="anchor"></a>An Ultrasensitive Mechanism Regulates Influenza Virus-Induced Inflammation</h2>
 <p>This dataset is a microarray time-course experiment, exposing mice to three different strains of influenza with varying doses. The authors of the experiment collected three replicates of lung tissue samples during 14 unevenly-spaced time-points after infection, resulting in a dataset of 209 samples.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">timecoursedata</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">shoemaker2015</span>)
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">timecoursedata</span>)</pre></body></html></div>
+<pre><code>## Loading required package: SummarizedExperiment</code></pre>
+<pre><code>## Loading required package: GenomicRanges</code></pre>
+<pre><code>## Loading required package: stats4</code></pre>
+<pre><code>## Loading required package: BiocGenerics</code></pre>
+<pre><code>## Loading required package: parallel</code></pre>
+<pre><code>## 
+## Attaching package: 'BiocGenerics'</code></pre>
+<pre><code>## The following objects are masked from 'package:parallel':
+## 
+##     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+##     clusterExport, clusterMap, parApply, parCapply, parLapply,
+##     parLapplyLB, parRapply, parSapply, parSapplyLB</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     IQR, mad, sd, var, xtabs</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     Filter, Find, Map, Position, Reduce, anyDuplicated, append,
+##     as.data.frame, basename, cbind, colnames, dirname, do.call,
+##     duplicated, eval, evalq, get, grep, grepl, intersect, is.unsorted,
+##     lapply, mapply, match, mget, order, paste, pmax, pmax.int, pmin,
+##     pmin.int, rank, rbind, rownames, sapply, setdiff, sort, table,
+##     tapply, union, unique, unsplit, which, which.max, which.min</code></pre>
+<pre><code>## Loading required package: S4Vectors</code></pre>
+<pre><code>## 
+## Attaching package: 'S4Vectors'</code></pre>
+<pre><code>## The following object is masked from 'package:base':
+## 
+##     expand.grid</code></pre>
+<pre><code>## Loading required package: IRanges</code></pre>
+<pre><code>## Loading required package: GenomeInfoDb</code></pre>
+<pre><code>## Loading required package: Biobase</code></pre>
+<pre><code>## Welcome to Bioconductor
+## 
+##     Vignettes contain introductory material; view with
+##     'browseVignettes()'. To cite Bioconductor, see
+##     'citation("Biobase")', and for packages 'citation("pkgname")'.</code></pre>
+<pre><code>## Loading required package: DelayedArray</code></pre>
+<pre><code>## Loading required package: matrixStats</code></pre>
+<pre><code>## 
+## Attaching package: 'matrixStats'</code></pre>
+<pre><code>## The following objects are masked from 'package:Biobase':
+## 
+##     anyMissing, rowMedians</code></pre>
+<pre><code>## 
+## Attaching package: 'DelayedArray'</code></pre>
+<pre><code>## The following objects are masked from 'package:matrixStats':
+## 
+##     colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     aperm, apply, rowsum</code></pre>
+<div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">shoemaker2015</span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">shoemaker2015</span>$<span class="no">meta</span>)</pre></body></html></div>
 <pre><code>##              Group Replicate Timepoint
 ## GSM1557140 0     K         1         0
@@ -164,7 +241,7 @@
 ## GSM1557143 3     K         1        12
 ## GSM1557144 4     K         2        12
 ## GSM1557145 5     K         3        12</code></pre>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">shoemaker2015</span>$<span class="no">data</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb27"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">shoemaker2015</span>$<span class="no">data</span>)</pre></body></html></div>
 <pre><code>##                    GSM1557140 GSM1557141 GSM1557142 GSM1557143 GSM1557144
 ## NM_009912            4.364173   4.338212   4.467095   4.096020   4.047477
 ## NM_008725            8.227778   8.318347   8.763661   8.894427   8.940470
@@ -481,10 +558,10 @@
 <h2 class="hasAnchor">
 <a href="#transcriptomic-analysis-of-field-droughted-sorghum-from-seedling-to-maturity-reveals-biotic-and-metabolic-responses" class="anchor"></a>Transcriptomic analysis of field-droughted sorghum from seedling to maturity reveals biotic and metabolic responses</h2>
 <p>This pairs of datasets (<code>varoquaux2019leaf</code> and <code>varoquaux2019root</code>) corresponds to transcriptomic data from respectively leaf and root samples of <em>S. bicolor</em> exposed to droughts (pre-flowering and post-flowering drougt) from seedling to maturity. Samples were collected weekly during 15 weeks. The data provided here is not normalized.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">varoquaux2019leaf</span>)
+<div class="sourceCode" id="cb30"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">varoquaux2019leaf</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="no">varoquaux2019leaf</span>$<span class="no">data</span>)</pre></body></html></div>
 <pre><code>## [1] 34211</code></pre>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span>(<span class="no">varoquaux2019leaf</span>$<span class="no">data</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb32"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span>(<span class="no">varoquaux2019leaf</span>$<span class="no">data</span>)</pre></body></html></div>
 <pre><code>## [1] 197</code></pre>
 <p>The metadata associated to these datasets are more complete than the <code>shoemaker2015</code> one: it contains 69 fields in total. Amongst the most relevant are the following:</p>
 <table class="table">
