@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Loading the varoquaux2019leaf dataset as SummarizedExperiment — load_varoquaux2019leaf • timecoursedata</title>
+<title>Loading the varoquaux2019 leaf or root dataset as SummarizedExperiment — load_varoquaux2019 • timecoursedata</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,9 @@
 
 
 
-<meta property="og:title" content="Loading the varoquaux2019leaf dataset as SummarizedExperiment — load_varoquaux2019leaf" />
-<meta property="og:description" content="See data(varoquaux2019leaf) for a full description of the dataset and the
-metadata." />
+<meta property="og:title" content="Loading the varoquaux2019 leaf or root dataset as SummarizedExperiment — load_varoquaux2019" />
+<meta property="og:description" content="See data(varoquaux2019leaf) or data(varoquaux2019root) for a full
+description of the dataset and the metadata." />
 
 
 
@@ -73,7 +73,7 @@ metadata." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">timecoursedata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.14</span>
       </span>
     </div>
 
@@ -119,26 +119,26 @@ metadata." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Loading the varoquaux2019leaf dataset as SummarizedExperiment</h1>
+    <h1>Loading the varoquaux2019 leaf or root dataset as SummarizedExperiment</h1>
     
-    <div class="hidden name"><code>load_varoquaux2019leaf.Rd</code></div>
+    <div class="hidden name"><code>load_varoquaux2019.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>See data(varoquaux2019leaf) for a full description of the dataset and the
-metadata.</p>
+    <p>See data(varoquaux2019leaf) or data(varoquaux2019root) for a full
+description of the dataset and the metadata.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>load_varoquaux2019leaf</span>()</pre>
+    <pre class="usage"><span class='fu'>load_varoquaux2019</span>(<span class='kw'>sample_type</span> <span class='kw'>=</span> <span class='st'>"leaf"</span>)</pre>
 
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a <code>SummerizedExperiment</code> of the leaf samples of Varoquaux et
-al.</p>
+    <p>a <code>SummerizedExperiment</code> of the leaf or root samples of
+Varoquaux et al.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>sorghum_timecourse_data</span> <span class='kw'>=</span> <span class='fu'>load_varoquaux2019leaf</span>()
+    <pre class="examples"><div class='input'><span class='no'>sorghum_timecourse_data</span> <span class='kw'>=</span> <span class='fu'>load_varoquaux2019</span>(<span class='kw'>sample_type</span><span class='kw'>=</span><span class='st'>"leaf"</span>)
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>sorghum_timecourse_data</span>)</div><div class='output co'>#&gt; class: SummarizedExperiment 
 #&gt; dim: 6 197 
 #&gt; metadata(0):

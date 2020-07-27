@@ -73,7 +73,7 @@ sorghum from seedling to maturity reveals biotic and metabolic responses&quot;" 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">timecoursedata</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.13</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.14</span>
       </span>
     </div>
 
@@ -146,19 +146,20 @@ sorghum from seedling to maturity reveals biotic and metabolic responses"</p>
   measuring gene expression across time in the plant sorghum. One dataset
   corresponds to the leaf of the plant (<code>varoquaux2019leaf</code>), the other
   to the root from the same sets of plants (<code>varoquaux2019leaf</code>). Each
-  sample sequenced is actually a pool of at least 10 plants.</p>
+  sample sequenced is actually a pool of at least 10 plants. Note that leaf
+  and root samples were processed and sequenced as two separate batches.
+  Any comparison between the two datasets should be traded with care.</p>
 <p><code>data</code> is a data frame with 34,211 rows corresponding to
   sorghum genes with
-  (<a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor'>Phytozome v3.0</a> gene ids). Root has 198 columns and leaf has 197 columns,
+  (<a href='https://phytozome.jgi.doe.gov/pz/portal.html#!info?alias=Org_Sbicolor'>Phytozome
+  v3.0</a> gene ids). Root has 198 columns and leaf has 197 columns,
   corresponding to samples. The root and leaf samples are from the same
   plants, and have ids in the form of "0622162L05" or "0622162R05", with "L"
   corresponding to the leaf and "R" corresponding to the root sample. Some
   samples were removed for quality control reasons, resulting in slightly
   different numbers of samples between the leaf and root.</p>
-<p>The data provided is normalized data, where the leaf and root have
-  been normalized separately. While we have kept the datasets in the same
-  format, a simple merge of the two datasets could be problematic due to the
-  separate normalization.</p>
+<p>The data provided is the raw data. Note that leafs and roots were
+  sequenced as two different batches.</p>
 <p><code>meta</code> is a data frame with rows corresponding to samples and
   and columns with meta data. These columns are the same across leaf and
   root, allowing for easy reuse of code across the datasets:</p><dl'>
