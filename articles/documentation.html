@@ -185,8 +185,30 @@
 <h2 class="hasAnchor">
 <a href="#an-ultrasensitive-mechanism-regulates-influenza-virus-induced-inflammation" class="anchor"></a>An Ultrasensitive Mechanism Regulates Influenza Virus-Induced Inflammation</h2>
 <p>This dataset is a microarray time-course experiment, exposing mice to three different strains of influenza with varying doses. The authors of the experiment collected three replicates of lung tissue samples during 14 unevenly-spaced time-points after infection, resulting in a dataset of 209 samples.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">timecoursedata</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">timecoursedata</span><span class="op">)</span></code></pre></div>
 <pre><code>## Loading required package: SummarizedExperiment</code></pre>
+<pre><code>## Loading required package: MatrixGenerics</code></pre>
+<pre><code>## Loading required package: matrixStats</code></pre>
+<pre><code>## 
+## Attaching package: 'MatrixGenerics'</code></pre>
+<pre><code>## The following objects are masked from 'package:matrixStats':
+## 
+##     colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse,
+##     colCounts, colCummaxs, colCummins, colCumprods, colCumsums,
+##     colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDiffs,
+##     colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,
+##     colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,
+##     colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads,
+##     colWeightedMeans, colWeightedMedians, colWeightedSds,
+##     colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPerColSet,
+##     rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,
+##     rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,
+##     rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,
+##     rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks,
+##     rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,
+##     rowWeightedMads, rowWeightedMeans, rowWeightedMedians,
+##     rowWeightedSds, rowWeightedVars</code></pre>
 <pre><code>## Loading required package: GenomicRanges</code></pre>
 <pre><code>## Loading required package: stats4</code></pre>
 <pre><code>## Loading required package: BiocGenerics</code></pre>
@@ -208,7 +230,7 @@
 ##     duplicated, eval, evalq, get, grep, grepl, intersect, is.unsorted,
 ##     lapply, mapply, match, mget, order, paste, pmax, pmax.int, pmin,
 ##     pmin.int, rank, rbind, rownames, sapply, setdiff, sort, table,
-##     tapply, union, unique, unsplit, which, which.max, which.min</code></pre>
+##     tapply, union, unique, unsplit, which.max, which.min</code></pre>
 <pre><code>## Loading required package: S4Vectors</code></pre>
 <pre><code>## 
 ## Attaching package: 'S4Vectors'</code></pre>
@@ -223,23 +245,17 @@
 ##     Vignettes contain introductory material; view with
 ##     'browseVignettes()'. To cite Bioconductor, see
 ##     'citation("Biobase")', and for packages 'citation("pkgname")'.</code></pre>
-<pre><code>## Loading required package: DelayedArray</code></pre>
-<pre><code>## Loading required package: matrixStats</code></pre>
 <pre><code>## 
-## Attaching package: 'matrixStats'</code></pre>
-<pre><code>## The following objects are masked from 'package:Biobase':
+## Attaching package: 'Biobase'</code></pre>
+<pre><code>## The following object is masked from 'package:MatrixGenerics':
 ## 
-##     anyMissing, rowMedians</code></pre>
-<pre><code>## 
-## Attaching package: 'DelayedArray'</code></pre>
+##     rowMedians</code></pre>
 <pre><code>## The following objects are masked from 'package:matrixStats':
 ## 
-##     colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     aperm, apply, rowsum</code></pre>
-<div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">shoemaker2015</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">shoemaker2015</span>$<span class="no">meta</span>)</pre></body></html></div>
+##     anyMissing, rowMedians</code></pre>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">shoemaker2015</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">shoemaker2015</span><span class="op">$</span><span class="va">meta</span><span class="op">)</span></code></pre></div>
 <pre><code>##              Group Replicate Timepoint
 ## GSM1557140 0     K         1         0
 ## GSM1557141 1     K         2         0
@@ -247,7 +263,8 @@
 ## GSM1557143 3     K         1        12
 ## GSM1557144 4     K         2        12
 ## GSM1557145 5     K         3        12</code></pre>
-<div class="sourceCode" id="cb27"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">shoemaker2015</span>$<span class="no">data</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">shoemaker2015</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>##                    GSM1557140 GSM1557141 GSM1557142 GSM1557143 GSM1557144
 ## NM_009912            4.364173   4.338212   4.467095   4.096020   4.047477
 ## NM_008725            8.227778   8.318347   8.763661   8.894427   8.940470
@@ -564,10 +581,12 @@
 <h2 class="hasAnchor">
 <a href="#transcriptomic-analysis-of-field-droughted-sorghum-from-seedling-to-maturity-reveals-biotic-and-metabolic-responses" class="anchor"></a>Transcriptomic analysis of field-droughted sorghum from seedling to maturity reveals biotic and metabolic responses</h2>
 <p>This pairs of datasets (<code>varoquaux2019leaf</code> and <code>varoquaux2019root</code>) corresponds to transcriptomic data from respectively leaf and root samples of <em>S. bicolor</em> exposed to droughts (pre-flowering and post-flowering drougt) from seedling to maturity. Samples were collected weekly during 15 weeks. The data provided here is not normalized. Please note that the root and leaf samples were processed and sequenced as two separate batches. Any comparison between the two datasets should thus be done with care.</p>
-<div class="sourceCode" id="cb30"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">varoquaux2019leaf</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="no">varoquaux2019leaf</span>$<span class="no">data</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">varoquaux2019leaf</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">varoquaux2019leaf</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 34211</code></pre>
-<div class="sourceCode" id="cb32"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span>(<span class="no">varoquaux2019leaf</span>$<span class="no">data</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">varoquaux2019leaf</span><span class="op">$</span><span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 197</code></pre>
 <p>The metadata associated to these datasets are more complete than the <code>shoemaker2015</code> one: it contains 69 fields in total. Amongst the most relevant are the following:</p>
 <table class="table">
@@ -648,7 +667,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
